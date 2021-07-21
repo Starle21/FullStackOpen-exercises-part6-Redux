@@ -49,10 +49,13 @@ const anecdoteReducer = (state = [], action) => {
   }
 };
 
-export const createNewAnecdote = data => {
-  return {
-    type: 'CREATE_ANECDOTE',
-    data,
+export const createNewAnecdote = content => {
+  return async dispatch => {
+    const anecdoteCreated = await anecdoteService.createNew(content);
+    dispatch({
+      type: 'CREATE_ANECDOTE',
+      data: anecdoteCreated,
+    });
   };
 };
 

@@ -8,8 +8,6 @@ import Filter from './components/Filter';
 
 import { initializeAnecdotes } from './reducers/anecdoteReducer';
 
-import anecdoteService from './services/anecdotes';
-
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
