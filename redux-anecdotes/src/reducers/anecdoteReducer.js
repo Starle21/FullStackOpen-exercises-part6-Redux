@@ -47,14 +47,10 @@ const anecdoteReducer = (state = [], action) => {
   }
 };
 
-export const createNewAnecdote = content => {
+export const createNewAnecdote = data => {
   return {
     type: 'CREATE_ANECDOTE',
-    data: {
-      content,
-      id: getId(),
-      votes: 0,
-    },
+    data,
   };
 };
 
