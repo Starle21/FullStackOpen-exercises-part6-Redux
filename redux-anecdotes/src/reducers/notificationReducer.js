@@ -30,6 +30,22 @@ export const setNotification = (message, sec) => {
   };
 };
 
+//without clearTimeout and global timer variable - notification
+//is displayed too short when the previous one has not cleared yet
+//need to use clearTimeout to get rid of the previous timer to remove notification
+//and set a new timer to remove notification
+// export const setNotification = (message, sec) => {
+//   return dispatch => {
+//     dispatch({
+//       type: 'SET_NOTIFICATION',
+//       message,
+//     });
+//     setTimeout(() => {
+//       dispatch(removeNotification());
+//     }, sec * 1000);
+//   };
+// };
+
 const removeNotification = () => {
   return {
     type: 'REMOVE_NOTIFICATION',
