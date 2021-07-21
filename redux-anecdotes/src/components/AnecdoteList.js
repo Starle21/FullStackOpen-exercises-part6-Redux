@@ -8,8 +8,12 @@ import {
 
 let timer = null;
 const AnecdoteList = () => {
-  const anecdotes = useSelector(state => state.anecdotes);
   const dispatch = useDispatch();
+  // const anecdotes = useSelector(state => state.anecdotes);
+  const anecdotes = useSelector(({ anecdotes, filter }) => {
+    if (filter === '') return anecdotes;
+    return anecdotes.filter(a => a.content.includes(filter));
+  });
 
   const vote = anecdote => {
     // console.log('vote', anecdote.id);
